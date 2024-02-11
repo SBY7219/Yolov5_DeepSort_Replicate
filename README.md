@@ -15,11 +15,17 @@ python3 track.py --source ...
 如果需要txt格式的检测结果输出,按照如下可以保存到 `inference` .
 txt格式按顺序显示的的数据含义是:
 帧序号：当前帧的序号。 
+
 对象ID：被跟踪对象的唯一标识符。 
+
 边界框左上角的x坐标：对象边界框左上角的x坐标。 
+
 边界框左上角的y坐标：对象边界框左上角的y坐标。 
+
 边界框的宽度：对象边界框的宽度。 
+
 边界框的高度：对象边界框的高度。 
+
 值为-1意思是未识别的一些量,可以忽略.
 
 ```bash
@@ -29,20 +35,35 @@ python3 track.py --source ... --save-txt
 如果需要json格式的检测结果输出,可以使用txt2json.py插件.
 采用的json格式是:
 { 
+
 	'video_name': *video_name*, 
+ 
 	'frames': { 
+ 
 		'frame_*frameId*': { 
+  
 			'cv_annotation': { 
+   
 				'*objType*_track_*trackId*': {
+    
 					'object_type': str, # e.g., 'car', 'pedestrian', etc. 
+     
 					'track_id': str, # e.g, 'track_3' 
+     
 					'bbox': [float, float, float, float], # e.g., [xtl, ytl, xbr, ybr] 
+     
 					'observed_frames': [int, int, int, ...], # e.g., [153, 154, 155, ...] 
+     
 				} 
+    
 			}
+   
 		}
+  
 	}
+ 
 }
+
 
 ## Tracking sources
 
@@ -54,7 +75,7 @@ $ python track.py --source 0  # webcam
                            vid.mp4  # video
                            path/  # directory
                            path/*.jpg  # glob
-                           'https://youtu.be/Zgi9g1ksQHc'  # YouTube
+                           'https://www.bilibili.com/video/BV19N4y1n7Tm)'  # Bilibili
                            'rtsp://example.com/media.mp4'  # RTSP, RTMP, HTTP stream
 ```
 
